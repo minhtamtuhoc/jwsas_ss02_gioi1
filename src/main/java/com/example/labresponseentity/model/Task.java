@@ -4,13 +4,15 @@ public class Task {
 
     private int id;
     private String title;
+    private int assignedTo;
 
     public Task() {
     }
 
-    public Task(int id, String title) {
+    public Task(int id, String title, int assignedTo) {
         this.id = id;
         this.title = title;
+        this.assignedTo = assignedTo;
     }
 
     public int getId() {
@@ -29,4 +31,11 @@ public class Task {
         this.title = title;
     }
 
+    public int getAssignedTo() {
+        return assignedTo;
+    }
+
+    public void setAssignedTo(int assignedTo) {
+        this.assignedTo = assignedTo;
+    }
 }

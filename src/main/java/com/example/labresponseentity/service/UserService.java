@@ -20,5 +20,17 @@ public class UserService {
 
         return users;
     }
+    public User findById(int id) {
+
+        List<User> users = getAllUsers();
+
+        for (User user : users) {
+            if (user.getId() == id) {
+                return user;
+            }
+        }
+
+        return null;
+    }
 
 }
