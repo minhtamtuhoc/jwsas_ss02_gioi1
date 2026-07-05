@@ -23,7 +23,7 @@ public class TaskService {
 
     public boolean addTask(Task task) {
 
-        User user = userService.findById(task.getAssignedTo());
+        User user = userService.findUserById(task.getAssignedTo());
 
         if (user == null) {
             return false;

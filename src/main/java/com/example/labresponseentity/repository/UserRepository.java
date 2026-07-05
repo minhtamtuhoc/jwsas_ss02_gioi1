@@ -22,11 +22,47 @@ public class UserRepository {
     }
 
     public User findById(int id) {
+
         for (User user : users) {
             if (user.getId() == id) {
                 return user;
             }
         }
+
+        return null;
+    }
+
+    public User save(User user) {
+        users.add(user);
+        return user;
+    }
+
+    public User save(int id, User newUser) {
+
+        for (int i = 0; i < users.size(); i++) {
+
+            if (users.get(i).getId() == id) {
+
+                newUser.setId(id);
+
+                users.set(i, newUser);
+
+                return newUser;
+            }
+        }
+
+        return null;
+    }
+
+    public User deleteById(int id) {
+
+        User user = findById(id);
+
+        if (user != null) {
+            users.remove(user);
+            return user;
+        }
+
         return null;
     }
 }
