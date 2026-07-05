@@ -1,36 +1,23 @@
 package com.example.labresponseentity.service;
 
 import com.example.labresponseentity.model.User;
+import com.example.labresponseentity.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class UserService {
 
+    @Autowired
+    private UserRepository userRepository;
+
     public List<User> getAllUsers() {
-
-        List<User> users = new ArrayList<>();
-
-        users.add(new User(1, "An"));
-        users.add(new User(2, "Binh"));
-        users.add(new User(3, "Tuan"));
-        users.add(new User(4, "Tam"));
-
-        return users;
+        return userRepository.findAll();
     }
+
     public User findById(int id) {
-
-        List<User> users = getAllUsers();
-
-        for (User user : users) {
-            if (user.getId() == id) {
-                return user;
-            }
-        }
-
-        return null;
+        return userRepository.findById(id);
     }
-
 }
